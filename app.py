@@ -6,10 +6,21 @@ import json
 from shapely.geometry import shape
 
 # Authenticate and initialize Earth Engine
-# Load credentials from JSON service account
-service_account = 'voila-access@ee-saeiddalirisu.iam.gserviceaccount.com'
-credentials = ee.ServiceAccountCredentials(service_account, 'gee_service_account.json')
+import ee
+from google.oauth2 import service_account
+
+# Path to service account key
+SERVICE_ACCOUNT_FILE = 'ee_service_account.json'
+
+# Authenticate using service account
+credentials = ee.ServiceAccountCredentials(
+    'voila-access@ee-saeiddalirisu.iam.gserviceaccount.com',
+    SERVICE_ACCOUNT_FILE
+)
+
+# Initialize Earth Engine with your project
 ee.Initialize(credentials, project='ee-saeiddalirisu', opt_url='https://earthengine-highvolume.googleapis.com')
+
 
 
 
