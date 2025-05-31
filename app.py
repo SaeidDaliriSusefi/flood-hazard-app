@@ -6,7 +6,6 @@ import json
 from shapely.geometry import shape
 
 # Authenticate and initialize Earth Engine
-ee.Authenticate()
 ee.Initialize(project="ee-saeiddalirisu", opt_url='https://earthengine-highvolume.googleapis.com')
 
 st.set_page_config(layout="wide")
