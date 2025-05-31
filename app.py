@@ -6,7 +6,14 @@ import json
 from shapely.geometry import shape
 
 # Authenticate and initialize Earth Engine
-ee.Initialize(project="ee-saeiddalirisu", opt_url='https://earthengine-highvolume.googleapis.com')
+# Load credentials from JSON service account
+service_account = 'voila-access@ee-saeiddalirisu.iam.gserviceaccount.com'
+credentials = ee.ServiceAccountCredentials(service_account, 'gee_service_account.json')
+ee.Initialize(credentials, project='ee-saeiddalirisu', opt_url='https://earthengine-highvolume.googleapis.com')
+
+
+
+
 
 st.set_page_config(layout="wide")
 st.title("🌊 GEE Flood Hazard Viewer")
